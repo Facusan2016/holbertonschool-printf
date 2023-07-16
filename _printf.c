@@ -1,0 +1,60 @@
+#include "main.h"
+#include <stdlib.h>
+#include <stdarg.h>
+
+/**
+ * printformat - Function that recreates the behavior of printf.
+ * @format: String to be passed to the function.
+ * @arg: va.
+ * Return: The amount of characters printed.
+ */
+
+int printformat(const char *format, va_list arg)
+{
+	int i = 0, total = 0;
+
+	while (format[i] != '\0')
+	{
+		if (format[i] == '%')
+		{
+			i++;
+			total += select_func(format[i])(arg);
+
+		} else if (format[i] == '\\')
+		{
+			i++;
+			total += print_sp(format[i]);
+
+		} else
+		{
+			_putchar(format[i]);
+			total++;
+		}
+
+		i++;
+	}
+
+	return (total);
+}
+
+/**
+ * _printf - Function that recreates the behavior of printf.
+ * @format: String to be passed to the function.
+ * Return: The amount of characters printed.
+ */
+
+int _printf(const char *format, ...)
+{
+	int i = 0;
+	va_list arg;
+
+	va_start(arg, format);
+
+	if (format == NULL)
+		return (0);
+
+	i = printformat(format, arg);
+	va_end(arg);
+
+	return (i);
+}
