@@ -1,0 +1,99 @@
+.TH _PRINTF
+.SH "NAME" 
+_printf \- prints content depending on the format 
+.SH LIBRARY
+main.h  
+.SH SYNOPSIS
+int _printf(char *format, …);
+.SH DESCRIPTION:
+_printf aims to be able to print “format” which is a string received, as
+.PP
+well as some other arguments depending on directives given in format.
+.SH RETURN VALUE:
+If format is not NULL returns the amount of characters printed, otherwise
+.PP
+returns -1.
+.SH FORMAT SPECIFIERS:
+%s: prints a string received in the arguments.
+.PP
+%c: prints a single char received in the arguments
+.PP
+%d: prints a decimal value received in the arguments
+.PP
+%i: prints an integer value received in the arguments
+.PP
+%%: prints the % sign 
+.PP
+The format might include certain characters that could interfere with the 
+.PP
+printing of the string, so there is a specific way to print them.
+.SH SPECIAL CHARACTERS:
+\\\\: prints the '\\' character.
+.PP
+\\”: prints the '“' character.
+.PP
+\\': prints the ''' character.
+.PP
+\\%:  prints the '%' character.
+.PP
+\\a: reproduces a sound alert
+.PP
+\\b: prints a backspace.
+.PP
+\\f: form feed
+.PP
+\\n: prints a new line
+.PP
+\\r: prints a carriage return
+.PP
+\\t: prints a tab
+.PP
+\\v: prints a vertical tab
+.SH EXAMPLES:	
+.nf
+#include "main.h"
+typedef struct student_grade
+{
+	char *name;
+	char *surname;
+	int day;
+	int month;
+	char grade;
+} student_grade;
+.PP
+int print_all(student_grade data[], int size)
+{
+	int i = 0;
+	int total = 0;
+.PP
+	while(i < size)
+	{
+		total += _printf("%s %s:\n", data[i].name, data[i].surname);
+		total += _printf("\tGrade: %c\n", data[i].grade);
+		total += _printf("\tCorrected on: %d/%i\n", data[i].day, data[i].month);
+		total += _printf("\n");
+		i++;
+	}
+	return (total);
+}
+.PP
+int main(void)
+{
+	int i;
+.PP
+	student_grade data[3] = {
+		{"Juan", "Sierra", 16, 10, 'b'},
+		{"Carlos", "Galzerano", 24, 02, 'a'},
+		{"Jose", "Rodriguez", 11, 05, 'f'}
+	};
+.PP
+	i = print_all(data, 3);
+.PP
+	_printf("Return value: %i\n", i);
+	return(0);
+}
+.fi
+.SH AUTHOR:
+This function was created by Facundo Villagra and Facundo Sánchez. 
+
+
