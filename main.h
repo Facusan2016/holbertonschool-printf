@@ -45,5 +45,8 @@ int print_sp(char c);
 int print_string(va_list arg);
 int print_char(va_list arg);
 int print_percent(va_list arg);
+int print_percent_car(va_list arg);
+int print_num(va_list arg);
+char *itoa(int i, char b[]);
 
 #endif

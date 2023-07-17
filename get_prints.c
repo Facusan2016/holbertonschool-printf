@@ -14,8 +14,10 @@ int (*select_func(char car))(va_list)
 	fun_sel_t ops[] = {
 		{'s', print_string},
 		{'c', print_char},
+		{'i', print_num},
+		{'d', print_num},
 		{'%', print_percent},
-		{0, NULL}
+		{0, print_percent_car}
 	};
 
 	while (ops[i].c != car && ops[i].c != 0)

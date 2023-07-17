@@ -86,3 +86,16 @@ int print_percent(va_list arg)
 	_putchar('%');
 	return (1);
 }
+
+/**
+ * print_percent_car - Prints a '%' followed by a car.
+ * @arg: Must be a char.
+ * Return: 2 (because is a char plus a '%').
+ */
+
+int print_percent_car(va_list arg)
+{
+	(void) arg;
+	_putchar('%');
+	return (2);
+}

@@ -20,7 +20,9 @@ int printformat(const char *format, va_list arg)
 			i++;
 			total += select_func(format[i])(arg);
 
-		} else if (format[i] == '\\')
+			if (select_func(format[i]) == print_percent_car)
+				_putchar(format[i]);
+		}	else if (format[i] == '\\')
 		{
 			i++;
 			total += print_sp(format[i]);
