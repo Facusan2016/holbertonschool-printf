@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <limits.h>
 
 /**
  * itoa - Converts int to a string.
@@ -8,7 +9,7 @@
  * Return: amount of characters printed.
  */
 
-char *itoa(int i, char b[])
+char *itoa(long int i, char b[])
 {
 	char const digit[] = "0123456789";
 
@@ -16,13 +17,13 @@ char *itoa(int i, char b[])
 
 	char *p = b;
 
+	shifter = i;
+
 	if (i < 0)
 	{
 		*p++ = '-';
-		i *= -1;
+		i = -i;
 	}
-
-	shifter = i;
 
 	do {
 		++p;
@@ -47,10 +48,11 @@ char *itoa(int i, char b[])
 
 int print_num(va_list arg)
 {
-	char result[11];
+	char result[13];
 	int i = 0;
+	int num = va_arg(arg, int);
 
-	itoa(va_arg(arg, int), result);
+	itoa(num, result);
 
 	while (result != NULL && result[i] != '\0')
 	{
