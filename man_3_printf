@@ -22,7 +22,15 @@ returns -1.
 .PP
 %i: prints an integer value.
 .PP
-%b: prints an Unsigned int on binary.
+%b: prints an unsigned int on binary base.
+.PP
+%u: prints an unsigned int.
+.PP
+%o: prints an unsigned int on octal base
+.PP
+%x: prints an unsigned int in hexadecimal base lowercase
+.PP
+%X: prints an unsigned int in hexadecimal base uppercase
 .PP
 %%: prints the % sign
 .PP

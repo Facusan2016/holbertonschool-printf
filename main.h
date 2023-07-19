@@ -48,6 +48,10 @@ int print_percent(va_list arg);
 int print_percent_car(va_list arg);
 int print_num(va_list arg);
 int print_binary(va_list arg);
+int print_unsigned(va_list arg);
+int print_octal(va_list arg);
+int print_up_hex(va_list arg);
+int print_low_hex(va_list arg);
 char *itoa(long int i, char b[]);
 
 #endif
