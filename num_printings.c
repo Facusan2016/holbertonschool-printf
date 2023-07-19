@@ -41,6 +41,25 @@ char *itoa(long int i, char b[])
 }
 
 /**
+ * itob - transforms an int to its value in binary.
+ * @num: number to be transfored.
+ * Return: binary format of the int.
+ */
+void itob(unsigned int num, int *i)
+{
+	if (num < 2)
+	{
+		_putchar(num + '0');
+		*i += 1;
+	} else
+	{
+	itob(num / 2, i);
+	_putchar((num % 2) + '0');
+	*i += 1;
+}
+}
+
+/**
  * print_num - Prints a number in base 10.
  * @arg: num to be printed.
  * Return: amount of characters printed.
@@ -60,5 +79,19 @@ int print_num(va_list arg)
 		i++;
 	}
 
+	return (i);
+}
+
+/**
+ * print_binary - Prints an unsigned int in base 2.
+ * @arg: num to be printed.
+ * Return: amount of characters printed.
+ */
+
+int print_binary(va_list arg)
+{
+	int i = 0;
+
+	itob(va_arg(arg, unsigned int), &i);
 	return (i);
 }

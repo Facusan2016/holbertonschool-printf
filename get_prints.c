@@ -16,6 +16,7 @@ int (*select_func(char car))(va_list)
 		{'c', print_char},
 		{'i', print_num},
 		{'d', print_num},
+		{'b', print_binary},
 		{'%', print_percent},
 		{0, print_percent_car}
 	};
