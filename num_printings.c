@@ -42,8 +42,9 @@ char *itoa(long int i, char b[])
 
 /**
  * itob - transforms an int to its value in binary.
+ * @i: Pointer to character counter.
  * @num: number to be transfored.
- * Return: binary format of the int.
+ * Return: Nothing.
  */
 void itob(unsigned int num, int *i)
 {

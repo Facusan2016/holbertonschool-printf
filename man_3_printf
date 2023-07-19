@@ -1,8 +1,8 @@
 .TH _PRINTF
-.SH "NAME" 
-_printf \- prints content depending on the format 
+.SH "NAME"
+_printf \- prints content depending on the format
 .SH LIBRARY
-main.h  
+main.h
 .SH SYNOPSIS
 int _printf(char *format, …);
 .SH DESCRIPTION:
@@ -14,17 +14,19 @@ If format is not NULL returns the amount of characters printed, otherwise
 .PP
 returns -1.
 .SH FORMAT SPECIFIERS:
-%s: prints a string received in the arguments.
+%s: prints a string.
 .PP
-%c: prints a single char received in the arguments
+%c: prints a single char.
 .PP
-%d: prints a decimal value received in the arguments
+%d: prints a decimal value.
 .PP
-%i: prints an integer value received in the arguments
+%i: prints an integer value.
 .PP
-%%: prints the % sign 
+%b: prints an Unsigned int on binary.
 .PP
-The format might include certain characters that could interfere with the 
+%%: prints the % sign
+.PP
+The format might include certain characters that could interfere with the
 .PP
 printing of the string, so there is a specific way to print them.
 .SH SPECIAL CHARACTERS:
@@ -49,9 +51,24 @@ printing of the string, so there is a specific way to print them.
 \\t: prints a tab
 .PP
 \\v: prints a vertical tab
-.SH EXAMPLES:	
+.SH EXAMPLES:
 .nf
+
+/*
+
 #include "main.h"
+
+/**
+ * struct student_grade - Student object
+ * @name: Name of the student.
+ * @surname: Surname of the student.
+ * @day: Day corrected.
+ * @month: Month corrected.
+ * @grade: Grade of the student.
+ *
+ * Description: Longer description
+ */
+
 typedef struct student_grade
 {
 	char *name;
@@ -61,6 +78,14 @@ typedef struct student_grade
 	char grade;
 } student_grade;
 .PP
+
+/**
+ * print_all - Prints all the data.
+ * @data: Array with the students data.
+ * @size: Amount of students.
+ * Return: Nothing.
+ */
+
 int print_all(student_grade data[], int size)
 {
 	int i = 0;
@@ -77,6 +102,12 @@ int print_all(student_grade data[], int size)
 	return (total);
 }
 .PP
+
+/**
+ * main - Main Function.
+ * Return: The amount of characters printed.
+ */
+
 int main(void)
 {
 	int i;
@@ -94,6 +125,6 @@ int main(void)
 }
 .fi
 .SH AUTHOR:
-This function was created by Facundo Villagra and Facundo Sánchez. 
+This function was created by Facundo Villagra and Facundo Sánchez.
 
 
