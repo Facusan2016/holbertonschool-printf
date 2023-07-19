@@ -11,7 +11,7 @@ int print_unsigned(va_list arg)
 {
 	int i = 0;
 	int j = 1;
-	unsigned int copia = va_arg(arg, int);
+	unsigned int copia = va_arg(arg, unsigned int);
 	unsigned int num = copia;
 
 	while (copia > 10)
