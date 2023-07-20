@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * print_buffer - Prints a buffer that ends with a '\0'.
@@ -32,12 +33,12 @@ int print_unsigned(va_list arg)
 	unsigned int copia = va_arg(arg, unsigned int);
 	unsigned int num = copia;
 
-	buff = malloc(sizeof(char) * 12);
+	buff = malloc(sizeof(char) * (12 + 1));
 
 	if (buff == NULL)
 		return (-1);
 
-	while (copia > 10)
+	while (copia >= 10)
 	{
 		j = j * 10;
 		copia = copia / 10;
@@ -45,7 +46,7 @@ int print_unsigned(va_list arg)
 
 	while (j >= 1)
 	{
-		buff[i] = num / j % 10 + '0';
+		buff[i] = (num / j) % 10 + '0';
 		j = j / 10;
 		i++;
 	}
@@ -79,7 +80,7 @@ int print_octal(va_list arg)
 	if (buff == NULL)
 		return (-1);
 
-	while (copia > 8)
+	while (copia >= 8)
 	{
 		j = j * 8;
 		copia = copia / 8;
@@ -121,7 +122,7 @@ int print_up_hex(va_list arg)
 	if (buff == NULL)
 		return (-1);
 
-	while (copia > 16)
+	while (copia >= 16)
 	{
 		j = j * 16;
 		copia = copia / 16;
