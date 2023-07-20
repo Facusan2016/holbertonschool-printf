@@ -2,8 +2,25 @@
 #include <stdlib.h>
 
 /**
+ * print_buffer - Prints a buffer that ends with a '\0'.
+ * @buff: buff to be printed ended with an '\0'
+ * Return: Nothing.
+ */
+
+void print_buffer(char buff[])
+{
+	int i = 0;
+
+	while (buff[i] != '\0')
+	{
+		_putchar(buff[i]);
+		i++;
+	}
+}
+
+/**
  * print_unsigned - Prints an unsigned int.
- * @arg: num to be converted.
+ * @arg: Num to be printed.
  * Return: amount of characters printed.
  */
 
@@ -11,8 +28,14 @@ int print_unsigned(va_list arg)
 {
 	int i = 0;
 	int j = 1;
+	char *buff;
 	unsigned int copia = va_arg(arg, unsigned int);
 	unsigned int num = copia;
+
+	buff = malloc(sizeof(char) * 12);
+
+	if (buff == NULL)
+		return (-1);
 
 	while (copia > 10)
 	{
@@ -22,11 +45,16 @@ int print_unsigned(va_list arg)
 
 	while (j >= 1)
 	{
-		_putchar((num / j) % 10 + '0');
+		buff[i] = num / j % 10 + '0';
 		j = j / 10;
 		i++;
 	}
 
+	buff[i] = '\0';
+
+	print_buffer(buff);
+
+	free(buff);
 	return (i);
 
 }
@@ -42,8 +70,14 @@ int print_octal(va_list arg)
 {
 	int i = 0;
 	int j = 1;
+	char *buff;
 	unsigned int copia = va_arg(arg, unsigned int);
 	unsigned int num = copia;
+
+	buff = malloc(sizeof(char) * (8 + 1));
+
+	if (buff == NULL)
+		return (-1);
 
 	while (copia > 8)
 	{
@@ -53,10 +87,14 @@ int print_octal(va_list arg)
 
 	while (j >= 1)
 	{
-		_putchar((num / j) % 8 + '0');
+		buff[i] = (num / j) % 8 + '0';
 		j = j / 8;
 		i++;
 	}
+
+	buff[i] = '\0';
+	print_buffer(buff);
+	free(buff);
 
 	return (i);
 }
@@ -72,12 +110,16 @@ int print_up_hex(va_list arg)
 {
 	int i = 0;
 	int j = 1;
+	char *buff;
 	unsigned int copia = va_arg(arg, unsigned int);
 	unsigned int num = copia;
 
-	int up_hex[] = {0 + '0', 1 + '0', 2 + '0', 3 + '0', 4 + '0', 5 + '0'
-			 , 6 + '0', 7 + '0', 8 + '0', 9 + '0', 'A', 'B', 'C', 'D', 'E',
-			'F'};
+	char *up_hex = "0123456789ABCDEF";
+
+	buff = malloc(sizeof(char) * 16);
+
+	if (buff == NULL)
+		return (-1);
 
 	while (copia > 16)
 	{
@@ -87,11 +129,14 @@ int print_up_hex(va_list arg)
 
 	while (j >= 1)
 	{
-		_putchar(up_hex[(num / j) % 16]);
-
+		buff[i] = up_hex[(num / j) % 16];
 		j = j / 16;
 		i++;
 	}
+
+	buff[i] = '\0';
+	print_buffer(buff);
+	free(buff);
 
 	return (i);
 }
@@ -103,16 +148,21 @@ int print_up_hex(va_list arg)
  * Return: amount of characters printed.
  */
 
+
 int print_low_hex(va_list arg)
 {
 	int i = 0;
 	int j = 1;
+	char *buff;
 	unsigned int copia = va_arg(arg, unsigned int);
 	unsigned int num = copia;
 
-	int low_hex[] = {0 + '0', 1 + '0', 2 + '0', 3 + '0', 4 + '0', 5 + '0'
-			 , 6 + '0', 7 + '0', 8 + '0', 9 + '0', 'a', 'b', 'c', 'd', 'e',
-			'f'};
+	char *low_hex = "0123456789abcdef";
+
+	buff = malloc(sizeof(char) * 16);
+
+	if (buff == NULL)
+		return (-1);
 
 	while (copia > 16)
 	{
@@ -122,11 +172,14 @@ int print_low_hex(va_list arg)
 
 	while (j >= 1)
 	{
-		_putchar(low_hex[(num / j) % 16]);
-
+		buff[i] = low_hex[(num / j) % 16];
 		j = j / 16;
 		i++;
 	}
+
+	buff[i] = '\0';
+	print_buffer(buff);
+	free(buff);
 
 	return (i);
 }
