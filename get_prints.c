@@ -21,6 +21,7 @@ int (*select_func(char car))(va_list)
 		{'o', print_octal},
 		{'X', print_up_hex},
 		{'x', print_low_hex},
+		{'S', print_str_noprint},
 		{'%', print_percent},
 		{0, print_percent_car}
 	};

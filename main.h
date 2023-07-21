@@ -52,6 +52,7 @@ int print_unsigned(va_list arg);
 int print_octal(va_list arg);
 int print_up_hex(va_list arg);
 int print_low_hex(va_list arg);
+int print_str_noprint(va_list arg);
 char *itoa(long int i, char b[]);
 
 #endif
