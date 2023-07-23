@@ -53,6 +53,9 @@ int print_octal(va_list arg);
 int print_up_hex(va_list arg);
 int print_low_hex(va_list arg);
 int print_str_noprint(va_list arg);
+int print_rev_str(va_list arg);
+int print_rot13(va_list arg);
 char *itoa(long int i, char b[]);
+void print_buffer(char buff[]);
 
 #endif

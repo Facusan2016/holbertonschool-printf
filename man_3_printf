@@ -32,7 +32,13 @@ returns -1.
 .PP
 %X: prints an unsigned int in hexadecimal base uppercase
 .PP
-%%: prints the % sign
+%S: Prints a string with the non printable characters represented with \x and the ascii value of the char.
+.PP
+%r: Prints a reversed string.
+.PP
+%R: Prints a Rot13'ed string.
+.PP
+%%: Prints the % sign
 .PP
 The format might include certain characters that could interfere with the
 .PP
