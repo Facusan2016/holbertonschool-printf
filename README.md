@@ -1,13 +1,13 @@
-# _____printf
-## content
+# _printf
+## Content
 1. [Description](#Description)
-2. [Flowchart](#Flow)
-3. [Locations and use of functions](#Func)
-4. [Directives](#Direct)
+2. [Directives](#Direct)
+3. [Flowchart](#Flow)
+4. [Locations and use of functions](#Func)
 5. [Special characters](#spchar)
 6. [Example](#Examp)
 7. [Authors](#Auth)
-	---
+---
 ## Description <a name=Description><a>
 This function should be used to print content, mainly text, in the standard output, with the possibility with the addition of certain directives, (using %), wich will allow the printing of different kind of variables, like ints, strings, characters, etc.
 
@@ -27,7 +27,7 @@ Combination|Use
 %u | Prints an unsigned int.
 %o | Prints an unsigned int on octal base.
 %x | Prints an unsigned int in lowercase hexadecimal base.
-%X | Prints an unsigned int in lowercase hexadecimal base.
+%X | Prints an unsigned int in uppercase hexadecimal base.
 %S | Prints a string with the non printable characters represented with \x and the ascii value of the char.
 %r | Prints a reversed string.
 %R | Prints a Rot13'ed string.
@@ -97,15 +97,15 @@ Combination|Use
 ---|---
 \\\\ | Prints \\.
 \\" | Prints ".
-\\' | Prints the "%" character.
-\\% | Prints a decimal number.
-\\a | Prints an integer.
-\\b | Prints an unsigned int on binary base.
-\\f | Prints an unsigned int.
-\\n | Prints an unsigned int on octal base.
-\\r | Prints an unsigned int in lowercase hexadecimal base.
-\\t | Prints an unsigned int in lowercase hexadecimal base.
-\\v | Prints until it encounters this and returns -1.
+\\' | Prints '.
+\\% | Prints %.
+\\a | Reproduces an audible alert.
+\\b | Prints a backspace.
+\\f | Prints form feed.
+\\n | Prints a new line.
+\\r | Prints a carriage return.
+\\t | Prints a tab.
+\\v | Prints a vertical tab.
 	
 ## Example <a name=Examp><a>
 ```c
@@ -117,17 +117,16 @@ Combination|Use
   * @day: Day corrected.
   * @month: Month corrected.
   * @grade: Grade of the student.
-  *
-  * Description: Longer description
   */
 
-	typedef struct student_grade
+typedef struct student_grade
 {
 	char *name;
 	char *surname;
 	int day;
 	int month;
-	char grade;						
+	char grade;
+						
 } student_grade;
 
 /**
@@ -142,7 +141,7 @@ int print_all(student_grade data[], int size)
 	int i = 0;
 	int total = 0;
 
-	while(i < size)
+	while (i < size)
 	{
 		total += _printf("%s %s:\n", data[i].name, data[i].surname);
 		total += _printf("\tGrade: %c\n", data[i].grade);
@@ -150,6 +149,7 @@ int print_all(student_grade data[], int size)
 		total += _printf("\n");
 		i++;
 	}
+
 	return (total);
 }
 
